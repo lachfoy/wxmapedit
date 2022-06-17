@@ -24,12 +24,7 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     Bind(wxEVT_MENU, &Main::OnSaveMap, this, ID_SaveMap);
     Bind(wxEVT_MENU, &Main::OnExit, this, wxID_EXIT);
 
-    MapView* mapView = new MapView(this, ID_MapView);
-    //mapView->SetPosition(wxPoint(10, 10));
-    //mapView->SetSize(wxSize(480, 480));
-    //mapView->SetBackgroundColour(wxColor(0,0,0));
-    Bind(wxEVT_PAINT, &MapView::OnPaint, mapView, ID_MapView);
-    mapView->Refresh();
+    MapCanvas* mapCanvas = new MapCanvas(this, ID_MapCanvas);
 
     wxButton *generateMap = new wxButton(this, ID_GenerateMap, "Generate Map", wxPoint(10, 500), wxSize(125, 35));
     //generateMap->Show();

@@ -6,15 +6,17 @@
 #include <wx/dcmemory.h>
 #include <wx/dcbuffer.h>
 
-class MapView : public wxPanel
+class MapCanvas : public wxPanel
 {
 public:
-    MapView(wxFrame* parent, wxWindowID id);
+    MapCanvas(wxWindow* parent, wxWindowID id);
 
     void OnPaint(wxPaintEvent &event);
 
 private:
     void OnDraw(wxDC& dc);
+
+    wxDECLARE_EVENT_TABLE();
 };
 
 #endif

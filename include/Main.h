@@ -33,7 +33,7 @@ enum
     ID_LoadMap = 2,
     ID_SaveMap = 3,
     ID_GenerateMap = 4,
-    ID_MapView = 5
+    ID_MapCanvas = 5
 };
 
 #endif
