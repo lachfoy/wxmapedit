@@ -1,13 +1,6 @@
 #include "Main.h"
 
-enum
-{
-    ID_NewMap = 1,
-    ID_LoadMap = 2,
-    ID_SaveMap = 3
-};
-
-Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit")
+Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(800,600))
 {
     wxMenu *menuFile = new wxMenu;
     menuFile->Append(ID_NewMap, "&New map\tCtrl-N",
@@ -31,19 +24,13 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit")
     CreateStatusBar();
 
     Bind(wxEVT_MENU, &Main::OnNewMap, this, ID_NewMap);
+    Bind(wxEVT_MENU, &Main::OnLoadMap, this, ID_LoadMap);
+    Bind(wxEVT_MENU, &Main::OnSaveMap, this, ID_SaveMap);
     Bind(wxEVT_MENU, &Main::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &Main::OnExit, this, wxID_EXIT);
-}
 
-void Main::OnExit(wxCommandEvent &event)
-{
-    Close(true);
-}
-
-void Main::OnAbout(wxCommandEvent &event)
-{
-    wxMessageBox("This is a wxWidgets Hello World example",
-                 "About Hello World", wxOK | wxICON_INFORMATION);
+    generateMapButton = new wxButton(this, ID_GenerateMap, _T("Generate Map"));
+    Bind(wxEVT_BUTTON, &Main::OnGenerateMap, this, ID_GenerateMap);
 }
 
 void Main::OnNewMap(wxCommandEvent &event)
@@ -59,4 +46,24 @@ void Main::OnLoadMap(wxCommandEvent &event)
 void Main::OnSaveMap(wxCommandEvent &event)
 {
     wxLogMessage("Save a new map");
+    printf("Saving test map....");
+    save_map(&test_map, "maps/testmap");
+}
+
+void Main::OnGenerateMap(wxCommandEvent &event)
+{
+    wxLogMessage("Generate");
+    printf("Generating test map....");
+    generate_map(&test_map);
+}
+
+void Main::OnExit(wxCommandEvent &event)
+{
+    Close(true);
+}
+
+void Main::OnAbout(wxCommandEvent &event)
+{
+    wxMessageBox("This is a wxWidgets Hello World example",
+                 "About Hello World", wxOK | wxICON_INFORMATION);
 }

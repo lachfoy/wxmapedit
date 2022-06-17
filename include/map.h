@@ -16,7 +16,7 @@ typedef struct Map
 } Map;
 
 void generate_map(Map* map);
-void load_map(Map* map, const char* map_path);
 void save_map(Map* map, const char* map_path);
+void load_map(Map* map, const char* map_path);
 
 #endif
