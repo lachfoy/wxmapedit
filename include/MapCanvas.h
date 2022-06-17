@@ -1,5 +1,5 @@
-#ifndef MAPVIEW_H
-#define MAPVIEW_H
+#ifndef MAPCANVAS_H
+#define MAPCANVAS_H
 
 #include <wx/wx.h>
 #include <wx/dcclient.h>

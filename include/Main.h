@@ -4,7 +4,7 @@
 #include <wx/wx.h>
 
 #include <string>
-#include "MapView.h"
+#include "MapCanvas.h"
 
 extern "C" {
     #include "map.h"

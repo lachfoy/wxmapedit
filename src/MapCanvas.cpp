@@ -1,4 +1,4 @@
-#include "MapView.h"
+#include "MapCanvas.h"
 
 MapView::MapView(wxFrame* parent, wxWindowID id) : wxPanel(parent, id)
 {

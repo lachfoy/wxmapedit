@@ -10,7 +10,7 @@ add_executable(${PROJECT_NAME}
     src/Main.cpp
     src/App.cpp
     src/map.c
-    src/MapView.cpp
+    src/MapCanvas.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
