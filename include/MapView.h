@@ -2,6 +2,9 @@
 #define MAPVIEW_H
 
 #include <wx/wx.h>
+#include <wx/dcclient.h>
+#include <wx/dcmemory.h>
+#include <wx/dcbuffer.h>
 
 class MapView : public wxPanel
 {
@@ -11,7 +14,7 @@ public:
     void OnPaint(wxPaintEvent &event);
 
 private:
-    void render(wxDC& dc);
+    void OnDraw(wxDC& dc);
 };
 
 #endif

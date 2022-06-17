@@ -12,12 +12,8 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
 
-    wxMenu *menuHelp = new wxMenu;
-    menuHelp->Append(wxID_ABOUT);
-
     wxMenuBar *menuBar = new wxMenuBar;
     menuBar->Append(menuFile, "&File");
-    menuBar->Append(menuHelp, "&Help");
 
     SetMenuBar(menuBar);
 
@@ -26,16 +22,12 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     Bind(wxEVT_MENU, &Main::OnNewMap, this, ID_NewMap);
     Bind(wxEVT_MENU, &Main::OnLoadMap, this, ID_LoadMap);
     Bind(wxEVT_MENU, &Main::OnSaveMap, this, ID_SaveMap);
-    Bind(wxEVT_MENU, &Main::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &Main::OnExit, this, wxID_EXIT);
 
-    
-
     MapView* mapView = new MapView(this, ID_MapView);
-    mapView->SetPosition(wxPoint(10, 10));
-    mapView->SetSize(wxSize(480, 480));
-    mapView->SetBackgroundColour(wxColor(0,0,0));
-    //mapView->Show();
+    //mapView->SetPosition(wxPoint(10, 10));
+    //mapView->SetSize(wxSize(480, 480));
+    //mapView->SetBackgroundColour(wxColor(0,0,0));
     Bind(wxEVT_PAINT, &MapView::OnPaint, mapView, ID_MapView);
     mapView->Refresh();
 
@@ -67,17 +59,10 @@ void Main::OnGenerateMap(wxCommandEvent &event)
     printf("Generating test map....\n");
     generate_map(&test_map);
     printf("Test map generated\n");
-    wxLogMessage("Map has been generated");
 }
 
 void Main::OnExit(wxCommandEvent &event)
 {
     printf("Quitting program\n");
     Close(true);
-}
-
-void Main::OnAbout(wxCommandEvent &event)
-{
-    wxMessageBox("This is a wxWidgets Hello World example",
-                 "About Hello World", wxOK | wxICON_INFORMATION);
 }

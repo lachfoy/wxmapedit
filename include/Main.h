@@ -4,8 +4,11 @@
 #include <wx/wx.h>
 
 #include <string>
-#include "map.h"
 #include "MapView.h"
+
+extern "C" {
+    #include "map.h"
+}
 
 class Main : public wxFrame
 {
