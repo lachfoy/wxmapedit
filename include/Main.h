@@ -1,14 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-// For compilers that support precompilation, includes "wx/wx.h".
-#include <wx/wxprec.h>
-
-#ifndef WX_PRECOMP
 #include <wx/wx.h>
-#endif
 
+#include <string>
 #include "map.h"
+#include "MapView.h"
 
 class Main : public wxFrame
 {
@@ -16,8 +13,8 @@ public:
     Main();
 
 private:
-    wxButton *generateMapButton;
     Map test_map;
+    std::string current_map_name;
 
     void OnNewMap(wxCommandEvent &event);
     void OnLoadMap(wxCommandEvent &event);
@@ -32,7 +29,8 @@ enum
     ID_NewMap = 1,
     ID_LoadMap = 2,
     ID_SaveMap = 3,
-    ID_GenerateMap = 4
+    ID_GenerateMap = 4,
+    ID_MapView = 5
 };
 
 #endif

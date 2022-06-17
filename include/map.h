@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAPS_DIR "maps/"
+
 typedef struct Map
 {
     uint8_t w;
@@ -16,7 +18,7 @@ typedef struct Map
 } Map;
 
 void generate_map(Map* map);
-void save_map(Map* map, const char* map_path);
-void load_map(Map* map, const char* map_path);
+void save_map(Map* map, const char* map_name);
+void load_map(Map* map, const char* map_name);
 
 #endif

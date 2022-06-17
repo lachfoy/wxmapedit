@@ -46,7 +46,7 @@ void generate_map(Map* map) // generates a filled map for testing
     }
 }
 
-void save_map(Map* map, const char* map_path)
+void save_map(Map* map, const char* map_name)
 {
     // map buffer size is 2 ints for w and h then w * h ints for the wall data and another w * h ints for the object data.
     size_t map_buffer_size = (sizeof(uint8_t) * 2) + (sizeof(uint8_t) * map->w * map->h) + (sizeof(uint8_t) * map->w * map->h);
@@ -64,11 +64,13 @@ void save_map(Map* map, const char* map_path)
     
     // save the map buffer as a binary file
     FILE* fptr;
-    fptr = fopen(map_path, "wb");
+    char file_path[33];
+    sprintf(file_path, "%s%s", MAPS_DIR, map_name);
+    fptr = fopen(file_path, "wb");
     
     if (fptr == NULL)
     {
-        printf("Failed to open %s\n", map_path);
+        printf("Failed to open %s\n", map_name);
         exit(1);
     }
 
