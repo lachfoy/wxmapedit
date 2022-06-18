@@ -5,6 +5,8 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     wxMenu *menuFile = new wxMenu;
     menuFile->Append(ID_NewMap, "&New map\tCtrl-N",
                      "Create a new map");
+    menuFile->Append(ID_GenerateMap, "&Generate map",
+                     "Generate a new map from dummy data");
     menuFile->Append(ID_LoadMap, "&Load map\tCtrl-L",
                      "Load map from file");
     menuFile->Append(ID_SaveMap, "&Save map\tCtrl-S",
@@ -20,15 +22,10 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     CreateStatusBar();
 
     Bind(wxEVT_MENU, &Main::OnNewMap, this, ID_NewMap);
+    Bind(wxEVT_MENU, &Main::OnGenerateMap, this, ID_GenerateMap);
     Bind(wxEVT_MENU, &Main::OnLoadMap, this, ID_LoadMap);
     Bind(wxEVT_MENU, &Main::OnSaveMap, this, ID_SaveMap);
     Bind(wxEVT_MENU, &Main::OnExit, this, wxID_EXIT);
-
-    MapCanvas* mapCanvas = new MapCanvas(this, ID_MapCanvas);
-
-    wxButton *generateMap = new wxButton(this, ID_GenerateMap, "Generate Map", wxPoint(10, 500), wxSize(125, 35));
-    //generateMap->Show();
-    Bind(wxEVT_BUTTON, &Main::OnGenerateMap, this, ID_GenerateMap);
 }
 
 void Main::OnNewMap(wxCommandEvent &event)
@@ -53,6 +50,7 @@ void Main::OnGenerateMap(wxCommandEvent &event)
 {
     printf("Generating test map....\n");
     generate_map(&test_map);
+    m_mapCanvas = new MapCanvas(this, ID_MapCanvas, &test_map);
     printf("Test map generated\n");
 }
 
