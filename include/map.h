@@ -3,6 +3,10 @@
 #ifndef MAP_H
 #define MAP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,5 +24,9 @@ typedef struct Map
 void generate_map(Map* map);
 void save_map(Map* map, const char* map_name);
 void load_map(Map* map, const char* map_name);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -6,9 +6,7 @@
 #include <string>
 #include "MapCanvas.h"
 
-extern "C" {
-    #include "map.h"
-}
+#include "map.h"
 
 class Main : public wxFrame
 {
@@ -18,6 +16,7 @@ public:
 private:
     Map test_map;
     std::string current_map_name;
+    MapCanvas* m_mapCanvas;
 
     void OnNewMap(wxCommandEvent &event);
     void OnLoadMap(wxCommandEvent &event);
