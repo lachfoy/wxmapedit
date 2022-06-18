@@ -17,6 +17,7 @@ public:
 
 private:
     Map* m_map;
+    
     void render(wxDC& dc);
     void render_blank_map(wxDC& dc);
 

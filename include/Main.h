@@ -23,7 +23,6 @@ private:
     void OnSaveMap(wxCommandEvent &event);
     void OnGenerateMap(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);
-    void OnAbout(wxCommandEvent &event);
 };
 
 enum

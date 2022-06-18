@@ -50,8 +50,10 @@ void Main::OnGenerateMap(wxCommandEvent &event)
 {
     printf("Generating test map....\n");
     generate_map(&test_map);
-    m_mapCanvas = new MapCanvas(this, ID_MapCanvas, &test_map);
     printf("Test map generated\n");
+    printf("Creating map canvas...\n");
+    m_mapCanvas = new MapCanvas(this, ID_MapCanvas, &test_map);
+    printf("Test map drawn to canvas...\n");
 }
 
 void Main::OnExit(wxCommandEvent &event)

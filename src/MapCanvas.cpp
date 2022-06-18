@@ -50,7 +50,7 @@ void MapCanvas::render_blank_map(wxDC& dc)
     dc.SetBrush(brush);
 
     // wrapping the map C code into a C++ class could help with these sorts of things
-    const int tile_size = 20;
+    const int tile_size = 24;
     for (int y = 0; y < m_map->h; y++)
         for (int x = 0; x < m_map->w; x++)
         {
