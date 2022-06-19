@@ -3,7 +3,9 @@
 
 #include <string>
 
+extern "C" {
 #include "map.h"
+}
 
 class MapWrapper
 {
