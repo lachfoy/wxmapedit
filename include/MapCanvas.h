@@ -14,10 +14,11 @@ public:
     MapCanvas(wxWindow* parent, wxWindowID id, MapWrapper* map);
 
     void OnPaint(wxPaintEvent &event);
+    void OnMouseEvent(wxMouseEvent &event);
 
 private:
     MapWrapper* m_map;
-    int m_tile_size = 24;
+    int m_tileSize;
     
     void render(wxDC& dc);
     void render_blank_map(wxDC& dc);
