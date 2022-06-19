@@ -3,7 +3,7 @@
 MapCanvas::MapCanvas(wxWindow* parent, wxWindowID id, MapWrapper* map) : wxPanel(parent, id)
 {
     m_map = map;
-    m_tileSize = 32;
+    m_tileSize = 28;
     SetPosition(wxPoint(10, 10));
     SetSize(wxSize(544, 416));
 

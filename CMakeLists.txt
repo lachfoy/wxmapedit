@@ -12,6 +12,7 @@ add_executable(${PROJECT_NAME}
     src/map.c
     src/MapCanvas.cpp
     src/MapWrapper.cpp
+    src/TileCanvas.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

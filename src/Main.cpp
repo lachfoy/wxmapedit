@@ -26,6 +26,17 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     Bind(wxEVT_MENU, &Main::OnLoadMap, this, ID_LoadMap);
     Bind(wxEVT_MENU, &Main::OnSaveMap, this, ID_SaveMap);
     Bind(wxEVT_MENU, &Main::OnExit, this, wxID_EXIT);
+
+    printf("Generating test map....\n");
+    test_map = MapWrapper::generateMap();
+    printf("Test map generated\n");
+    printf("Creating map canvas...\n");
+    m_mapCanvas = new MapCanvas(this, ID_MapCanvas, &test_map);
+    printf("Test map drawn to canvas...\n");
+
+    m_tileCanvas = new TileCanvas(this, ID_TileCanvas);
+    m_tileCanvas->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
+    m_tileCanvas->Show();
 }
 
 void Main::OnNewMap(wxCommandEvent &event)

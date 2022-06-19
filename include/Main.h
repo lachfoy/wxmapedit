@@ -6,6 +6,7 @@
 #include <string>
 #include "MapCanvas.h"
 #include "MapWrapper.h"
+#include "TileCanvas.h"
 
 class Main : public wxFrame
 {
@@ -16,6 +17,7 @@ private:
     MapWrapper test_map;
     std::string current_map_name;
     MapCanvas* m_mapCanvas;
+    TileCanvas* m_tileCanvas;
 
     void OnNewMap(wxCommandEvent &event);
     void OnLoadMap(wxCommandEvent &event);
@@ -30,7 +32,9 @@ enum
     ID_LoadMap = 2,
     ID_SaveMap = 3,
     ID_GenerateMap = 4,
-    ID_MapCanvas = 5
+    ID_MapCanvas = 5,
+    ID_TileCanvas = 6,
+    ID_ObjectList = 7
 };
 
 #endif
