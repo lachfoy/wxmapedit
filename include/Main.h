@@ -7,6 +7,7 @@
 #include "MapCanvas.h"
 #include "MapWrapper.h"
 #include "TileCanvas.h"
+#include "ObjectList.h"
 
 class Main : public wxFrame
 {
@@ -18,6 +19,7 @@ private:
     std::string current_map_name;
     MapCanvas* m_mapCanvas;
     TileCanvas* m_tileCanvas;
+    wxListBox* m_objectList;
 
     void OnNewMap(wxCommandEvent &event);
     void OnLoadMap(wxCommandEvent &event);

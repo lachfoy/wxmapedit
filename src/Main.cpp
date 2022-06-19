@@ -36,7 +36,9 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
 
     m_tileCanvas = new TileCanvas(this, ID_TileCanvas);
     m_tileCanvas->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
-    m_tileCanvas->Show();
+
+    m_objectList = new ObjectList(this, ID_ObjectList);
+    m_objectList->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
 }
 
 void Main::OnNewMap(wxCommandEvent &event)
