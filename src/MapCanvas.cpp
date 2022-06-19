@@ -1,6 +1,6 @@
 #include "MapCanvas.h"
 
-MapCanvas::MapCanvas(wxWindow* parent, wxWindowID id, Map* map) : wxPanel(parent, id)
+MapCanvas::MapCanvas(wxWindow* parent, wxWindowID id, MapWrapper* map) : wxPanel(parent, id)
 {
     m_map = map;
 
@@ -50,12 +50,11 @@ void MapCanvas::render_blank_map(wxDC& dc)
     dc.SetBrush(brush);
 
     // wrapping the map C code into a C++ class could help with these sorts of things
-    const int tile_size = 24;
-    for (int y = 0; y < m_map->h; y++)
-        for (int x = 0; x < m_map->w; x++)
+    for (int y = 0; y < m_map->getHeight(); y++)
+        for (int x = 0; x < m_map->getWidth(); x++)
         {
-            if (m_map->wall_data[y * m_map->w + x] > 0)
-                dc.DrawRectangle(x * tile_size, y * tile_size, tile_size, tile_size);
+            if (m_map->isSolid(x, y))
+                dc.DrawRectangle(x * m_tile_size, y * m_tile_size, m_tile_size, m_tile_size);
         }
 }
 

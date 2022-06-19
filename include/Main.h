@@ -5,8 +5,7 @@
 
 #include <string>
 #include "MapCanvas.h"
-
-#include "map.h"
+#include "MapWrapper.h"
 
 class Main : public wxFrame
 {
@@ -14,7 +13,7 @@ public:
     Main();
 
 private:
-    Map test_map;
+    MapWrapper test_map;
     std::string current_map_name;
     MapCanvas* m_mapCanvas;
 

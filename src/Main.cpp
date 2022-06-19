@@ -40,16 +40,16 @@ void Main::OnLoadMap(wxCommandEvent &event)
 
 void Main::OnSaveMap(wxCommandEvent &event)
 {
-    const char* map_name = "testmap.map";
-    printf("Saving map %s...\n", map_name);
-    save_map(&test_map, map_name);
-    printf("Map %s saved to \"%s\" directory\n", map_name, MAPS_DIR);
+    // const char* map_name = "testmap.map";
+    // printf("Saving map %s...\n", map_name);
+    // save_map(&test_map, map_name);
+    // printf("Map %s saved to \"%s\" directory\n", map_name, MAPS_DIR);
 }
 
 void Main::OnGenerateMap(wxCommandEvent &event)
 {
     printf("Generating test map....\n");
-    generate_map(&test_map);
+    test_map = MapWrapper::generateMap();
     printf("Test map generated\n");
     printf("Creating map canvas...\n");
     m_mapCanvas = new MapCanvas(this, ID_MapCanvas, &test_map);
