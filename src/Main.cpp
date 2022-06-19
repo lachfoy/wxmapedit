@@ -34,11 +34,13 @@ Main::Main() : wxFrame(NULL, wxID_ANY, "wxmapedit", wxDefaultPosition, wxSize(80
     m_mapCanvas = new MapCanvas(this, ID_MapCanvas, &test_map);
     printf("Test map drawn to canvas...\n");
 
-    m_tileCanvas = new TileCanvas(this, ID_TileCanvas);
-    m_tileCanvas->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
+    // m_tileCanvas = new TileCanvas(this, ID_TileCanvas);
+    // m_tileCanvas->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
 
+    wxStaticText* objectListTitle = new wxStaticText(this, wxID_ANY, "Objects");
+    objectListTitle->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
     m_objectList = new ObjectList(this, ID_ObjectList);
-    m_objectList->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 10));
+    m_objectList->SetPosition(wxPoint(10 + m_mapCanvas->GetSize().GetX() + 10, 30));
 }
 
 void Main::OnNewMap(wxCommandEvent &event)

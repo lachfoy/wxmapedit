@@ -7,6 +7,7 @@
 #include <wx/dcbuffer.h>
 
 #include "MapWrapper.h"
+#include "ImageLoader.h"
 
 class MapCanvas : public wxPanel
 {
@@ -19,6 +20,7 @@ public:
 private:
     MapWrapper* m_map;
     int m_tileSize;
+    wxBitmap m_tileBitmap;
     
     void render(wxDC& dc);
     void render_blank_map(wxDC& dc);

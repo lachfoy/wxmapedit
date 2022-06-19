@@ -4,6 +4,12 @@ MapCanvas::MapCanvas(wxWindow* parent, wxWindowID id, MapWrapper* map) : wxPanel
 {
     m_map = map;
     m_tileSize = 28;
+
+    // load tile image
+    wxImage tileImage = ImageLoader::loadImage("../imgs/test_tile.bmp");
+    tileImage.Rescale(m_tileSize, m_tileSize, wxIMAGE_QUALITY_NEAREST);
+    m_tileBitmap = wxBitmap(tileImage);
+
     SetPosition(wxPoint(10, 10));
     SetSize(wxSize(544, 416));
 
@@ -65,7 +71,8 @@ void MapCanvas::render_blank_map(wxDC& dc)
         for (int x = 0; x < m_map->getWidth(); x++)
         {
             if (m_map->isSolid(x, y))
-                dc.DrawRectangle(x * m_tileSize, y * m_tileSize, m_tileSize, m_tileSize);
+                //dc.DrawRectangle(x * m_tileSize, y * m_tileSize, m_tileSize, m_tileSize);
+                dc.DrawBitmap(m_tileBitmap, wxPoint(x * m_tileSize, y * m_tileSize));
         }
 }
 

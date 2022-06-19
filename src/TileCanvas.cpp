@@ -3,6 +3,7 @@
 TileCanvas::TileCanvas(wxWindow* parent, wxWindowID id) : wxPanel(parent, id)
 {
     m_tileSize = 48;
+
     SetPosition(wxPoint(10, 10));
     SetSize(wxSize(192, 128));
 
@@ -42,8 +43,27 @@ void TileCanvas::render_tiles(wxDC& dc)
         for (int x = 0; x < 2; x++)
         {
             dc.DrawRectangle(x * m_tileSize, y * m_tileSize, m_tileSize, m_tileSize);
+            //dc.DrawBitmap(., wxPoint(x * m_tileSize, y * m_tileSize));
         }
 }
+
+// void TileCanvas::render_tiles(wxDC& dc)
+// {
+//     dc.Clear();
+
+//     wxBrush brush = dc.GetBrush();
+
+//     // draw the tiles
+//     brush.SetColour(wxColour(255, 255, 255));
+//     dc.SetBrush(brush);
+
+//     // just draw 2 tiles for now
+//     for (int y = 0; y < 1; y++)
+//         for (int x = 0; x < 2; x++)
+//         {
+//             dc.DrawRectangle(x * m_tileSize, y * m_tileSize, m_tileSize, m_tileSize);
+//         }
+// }
 
 wxBEGIN_EVENT_TABLE(TileCanvas, wxPanel)
 EVT_PAINT(TileCanvas::OnPaint)

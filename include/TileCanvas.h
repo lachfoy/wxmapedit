@@ -6,6 +6,8 @@
 #include <wx/dcmemory.h>
 #include <wx/dcbuffer.h>
 
+#include "ImageLoader.h"
+
 class TileCanvas : public wxPanel
 {
 public:
@@ -16,7 +18,8 @@ public:
 
 private:
     int m_tileSize;
-    
+    wxBitmap m_tileBitmap;
+
     void render_tiles(wxDC& dc);
 
     wxDECLARE_EVENT_TABLE();
